@@ -1,0 +1,22 @@
+@import "nullstyle.scss";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:,regular,500,,600,700,800&display=swap);
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+}
+.content {
+	flex: 1 1 auto;
+}
+.conteiner{
+	max-width: 1076px;
+	padding: 0px 15px;
+	margin: 0px auto;
+}
+
+
+
+
+
+
+
