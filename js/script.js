@@ -1,3 +1,4 @@
+"use strict"
 /*function makeAdder(x){
             function add(y){
                return y + x;
