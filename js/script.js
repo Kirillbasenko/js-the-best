@@ -1001,4 +1001,18 @@ answers[2] = prompt('Сколько вам лет?');
 answers.forEach(function(item, i, arr){
    console.log(item);
 });*/
-console.log(3+4);
+let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+let personalMovieDB = {
+   count: numberOfFilms,
+   movies: {},
+   actors: {},
+   gendes: [],
+   privat: false
+};
+let a = prompt("Один из последних фильмов?"),
+   b = +prompt("На сколько его оценишь?"),
+   c = prompt("Один из последних фильмов?"),
+   d = +prompt("На сколько его оценишь?");
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
+console.log(personalMovieDB);
