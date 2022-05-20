@@ -999,3 +999,4 @@ answers[2] = prompt('Сколько вам лет?')
 answers.forEach(function(item, i, arr){
    console.log(item);
 })
+let a = b
