@@ -1120,7 +1120,7 @@ function getMathResult(a, b){
    }
    return str;
 }
-console.log(getMathResult(3, 10));*/
+console.log(getMathResult(3, 10));
 let numberOfFilms;
 function start(){
    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
@@ -1139,7 +1139,7 @@ let personalMovieDB = {
 
 function rememberMyfilms(){
    for( let i = 0; i < 2; i++){
-   const a = prompt("Один из последних просмотренных фильмов?", ""),
+   const a = prompt("Один из последних просмотренных фильмов?", "").trim(),
          b = prompt("На сколько его оцените", "");
    if( a != null && b != null && a != "" && b != "" && a.length < 50){
       personalMovieDB.movies[a] = b;
@@ -1176,3 +1176,212 @@ function writeYourGenres(){
    }
 }
 writeYourGenres();
+function calcCub(edge){
+   let volumeCub = Math.pow(edge, 3);
+   let areaCub = 6 * Math.pow(edge, 2);
+   if(typeof(edge) !== 'number' || edge < 0 || !Number.isInteger(edge)){
+      console.log("При вычислении произошла ошибка");
+   } else{
+      return `Обьем куба:${volumeCub}, площадь всей поверхности:${areaCub}`;
+   }
+}
+console.log(calcCub(4));
+function checkCupe(num){
+   if(typeof(num) !== 'number' || num < 0 || !Number.isInteger(num)){
+      console.log("Проверьте правильность введенного номера места");
+   } else if(num <= 0 || num > 36){
+      console.log(`Места ${num} в вагоне не существует`);
+   }
+   for(let i = 4; i <= 36; i = i + 4){
+      if( num <= i){
+         return Math.ceil(i / 4);
+      }
+   }
+}
+console.log(checkCupe(5));
+
+function checkTime(time){
+   if(typeof(time) !== 'number' || time < 0 || !Number.isInteger(time)){
+      console.log("Ошибка проверьте данные");
+   }
+   let hours = Math.floor(time / 60);
+   let minutes = time % 60;
+   let str = "";
+   switch (hours) {
+      case 0:
+         str = "часов";
+         break;
+      case 1:
+         str = "час";
+         break;
+      case 2:
+         str = "часа";
+         break;
+      case 3:
+         str = "часа";
+         break;
+      case 4:
+         str = "часа";
+         break;
+      default:
+         str = "часов";
+   }
+   return `Это ${hours} ${str} и ${minutes} минут`;
+}
+console.log(checkTime(434));
+function findMaxNumder(a, b, c, d){
+   if(typeof(a) !== "number" ||
+   typeof(b) !== "number" ||
+   typeof(c) !== "number" ||
+   typeof(d) !== "number" ){
+      return 0;
+   }else{
+      return Math.max(a, b, c, d);
+   }
+}
+console.log(findMaxNumder(2,3,4,5));
+function fib(num){
+   let result = "";
+   let firts = 0;
+   let second = 1;
+   for(let i = 0; i < num; i++){
+      if(i + 1 === num){
+         result += `${firts}`;
+      } else{
+         result += `${firts} `;
+      }
+      let tri = firts + second;
+      firts = second;
+      second = tri;
+   }
+   return result;
+}
+console.log(fib(7));
+let options = {
+   name: 'test',
+   width: 1024,
+   height: 1024,
+   colors : {
+      border: "black",
+      bg: "red",
+   },
+   makeTest: function(name){
+      console.log(`Hello ${name}`);
+   }
+};
+for (let key in options){
+   if (typeof(options[key]) === 'object'){
+      for(let item in options[key]){
+         console.log(`Свойство ${item} имеет значение ${options[key][item]}`);
+      }
+   }else{
+      console.log(`Свойство ${key} имеет значение ${options[key]}`);
+   }
+}
+console.log(Object.keys(options).length);
+options.makeTest('Kirill');
+let {border, bg} = options.colors;
+let arr = [24324, 423, 645, 83, 10,];
+arr.sort(conpareNum);
+arr.pop();
+console.log(arr);
+arr.push(6);
+console.log(arr);
+for( let key of arr){
+   console.log(key);
+}
+arr.forEach(function(item, index, arr){
+   console.log(`Элемент ${item} под номером ${index} в массиве ${arr}`);
+});
+let str = prompt("", "");
+let product = str.split(", ");
+console.log(product.join(";"));
+function conpareNum(a, b){
+   return b - a;
+}
+function copy(mainObj){
+   let objCopy = {};
+   for(let key in mainObj){
+      objCopy[key] = mainObj[key];
+   }
+   return objCopy;
+}
+let newObj = copy(options);
+
+newObj.name = 'Kirill';
+console.log(newObj);
+console.log(options);*/
+const personalPlanPeter = {
+   name: "Peter",
+   age: "29",
+   skills: {
+      languages: ['ru', 'eng'],
+      programmingLangs: {
+            js: '20%',
+            php: '10%'
+      },
+      exp: '1 month'
+   },
+   showAgeAndLangs: function(plan){
+      let {age} = plan;
+      let {languages} = plan.skills;
+      let str = `Мне ${age} и я владую языками:`;
+      languages.forEach(function(item){
+         str += `${item.toUpperCase()} `;
+      });
+      return str;
+   }
+};
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+function showExperience(plan){
+   let {exp} = plan.skills;
+   return exp;
+}
+console.log(showExperience(personalPlanPeter));
+function showProgrammingLangs(plan) {
+   let str = "";
+   let {programmingLangs} = plan.skills;
+   for(let key in programmingLangs){
+      str += `Язык ${key} изучен на ${programmingLangs[key]} `;
+   }
+   return str;
+}
+console.log(showProgrammingLangs(personalPlanPeter));
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+function showFamily(arr){
+   if(arr.length >= 1){
+      return `Семья состоит из: ${arr.join(" ")}` ;
+   } else{
+      return "Семья пуста";
+   }
+}
+console.log(showFamily(family));
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+function standardizaStrings(arr){
+   let str = arr.join(` `);
+   let lowerStr = str.toLowerCase();
+   return lowerStr ;
+}
+console.log(standardizaStrings(favoriteCities));
+const someString = 'This is some strange string';
+function reverse(str) {
+   if(typeof(str) == "string"){
+      return str.split('').reverse().join("");
+   }else{
+      return "Ошибка";
+   }
+}
+console.log(reverse(someString));
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+function availableCurr(arr, missingCurr){
+   let str = "";
+   arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
+   arr.forEach(function(item, index){
+      if(item !== missingCurr){
+         str += `${item}\n`;
+      }
+   });
+   return str;
+}
+console.log(availableCurr(baseCurrencies, additionalCurrencies));
