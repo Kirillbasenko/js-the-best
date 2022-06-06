@@ -1,24 +1,46 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <!-- добавим стили mocha для отображения результатов -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
-    <!-- добавляем сам фреймворк mocha -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
-    <script>
-        // включаем режим тестирования в стиле BDD
-        mocha.setup('bdd');
-    </script>
-    <!-- добавим chai -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
-    <script>
-        let assert = chai.assert;
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
 </head>
-
 <body>
-    <script src="js\lesson.js"></script>
+    <div id="first" class="btn-block">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+    </div>
+    <div class="oclock">
+        <div class="oclock__title">Осталось до конца акции:</div>
+        <div id="timer" class="oclock__time">
+            <div class="oclock__days">
+                <div id="days" class="oclock__numder">23</div>
+                <div class="oclock__string">дней</div>
+            </div>
+            <div class="oclock__hours">
+                <div id="hours" class="oclock__numder">32</div>
+                <div class="oclock__string">часов</div>
+            </div>
+            <div class="oclock__minutes">
+                <div id="minutes" class="oclock__numder">32</div>
+                <div class="oclock__string">минут</div>
+            </div>
+            <div class="oclock__seconds">
+                <div id="seconds" class="oclock__numder">32</div>
+                <div class="oclock__string">секунд</div>
+            </div>
+        </div>
+    </div>
+    <div class="val">
+        <div class="val__uanname">UAN</div>
+        <input id="uan" class="val__uan" type="text">
+        <div class="val__usdname">USD</div>
+        <input id="usd" class="val__usd" type="text">
+    </div>
+    <script src="js\script.js"></script>
 </body>
-
 </html>

@@ -788,7 +788,7 @@ function Clock({ template }) {
    };
 
 }
-*/
+
 
 class Clock{
    constructor({template}){
@@ -823,7 +823,7 @@ class Clock{
    }
 }
 let clock = new Clock({ template: 'h:m:s' });
-clock.start();
+clock.start();*/
 /*class Animal {
    constructor(name) {
       this.speed = 0;
@@ -1310,7 +1310,7 @@ let newObj = copy(options);
 
 newObj.name = 'Kirill';
 console.log(newObj);
-console.log(options);*/
+console.log(options);
 const personalPlanPeter = {
    name: "Peter",
    age: "29",
@@ -1385,3 +1385,287 @@ function availableCurr(arr, missingCurr){
    return str;
 }
 console.log(availableCurr(baseCurrencies, additionalCurrencies));
+const shoppingMallData = {
+   shops: [
+      {
+         width: 10,
+         length: 5
+      },
+      {
+         width: 15,
+         length: 7
+      },
+      {
+         width: 20,
+         length: 5
+      },
+      {
+         width: 8,
+         length: 10
+      }
+   ],
+   height: 5,
+   moneyPer1m3: 30,
+   budget: 50000
+};
+
+function isBudgetEnough(data) {
+   let area = 0;
+   let volume = 0;
+   data.shops.forEach(item =>{
+   area += item.width * item.length;
+   });
+   volume = area * data.height;
+   if(data.budget - (volume * data.moneyPer1m3) >= 0){
+      console.log("Бюджета достаточно");
+   }else{
+      console.log("Бюджета недостаточно");
+   }
+}
+isBudgetEnough(shoppingMallData);
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh',
+                  'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+
+function sortStudentsByGroups(arr) {
+   arr.sort();
+   const a = [], b = [], c = [], rest = [];
+   for(let i = 0; i < arr.length; i++){
+      if(i < 3){
+         a.push(arr[i]);
+      } else if(i < 6){
+         b.push(arr[i]);
+      } else if(i < 9){
+         c.push(arr[i]);
+      } else{
+         rest.push(arr[i]);
+      }
+   }
+   return [a, b, c, `Оставшиеся студенты ${rest.length === 0 ? '-' : rest.join(", ")}`];
+}
+console.log(sortStudentsByGroups(students));
+const restorantData = {
+   menu: [
+      {
+            name: 'Salad Caesar',
+            price: '14$'
+      },
+      {
+            name: 'Pizza Diavola',
+            price: '9$'
+      },
+      {
+            name: 'Beefsteak',
+            price: '17$'
+      },
+      {
+            name: 'Napoleon',
+            price: '7$'
+      }
+   ],
+   waitors: [
+      {name: 'Alice', age: 22}, {name: 'John', age: 24}
+   ],
+   averageLunchPrice: '20$',
+   openNow: true
+};
+function transferWaitors(data) {
+   const copy = Object.assign({}, data);
+
+   copy.waitors = [{name: 'Mike', age: 32}];
+   return copy;
+}
+console.log(transferWaitors(restorantData));
+let box = document.querySelector(".box");
+let button = document.querySelectorAll("button");
+let kolobok = document.querySelector(".kolobok");
+console.log(box);
+console.log(button);
+console.log(kolobok);
+box.style.width = "110px";
+let btn = document.querySelectorAll("button");
+btn.forEach(item =>{
+   item.addEventListener("click", () =>{
+   item.remove();
+   });
+});
+function pow(a, b){
+   let result = 1;
+   for(let i = 1; i <= b; i++){
+      result *= a;
+   }
+   return result;
+}
+
+console.log(pow(2,6));
+let student = {
+   js: [{
+      name: "john",
+      progress: 100
+   },{
+      name: "Ivan",
+      progress: 60
+   }],
+   html: {
+      basic: [{
+         name: "Peter",
+         progress: 20
+      },{
+         name: "Ann",
+         progress: 18
+      }],
+      pro: [{
+         name: "Sam",
+         progress: 10
+      }]
+   }
+};
+function getTotal(data){
+   let total = 0;
+   let students = 0;
+   for(let course of Object.values(data)){
+      if(Array.isArray(course)){
+         students += course.length;
+         for(let i = 0; i < course.length; i++){
+            total += course[i].progress;
+         }
+      } else{
+         for(let subCourse of Object.values(course)){
+            students += subCourse.length;
+               for(let i = 0; i < subCourse.length; i++){
+                  total += subCourse[i].progress;
+         }
+         }
+      }
+   }
+   return total / students;
+}
+console.log(getTotal(student));
+function getTotalByRecursion(data){
+   if(Array.isArray(data)){
+      let total = 0;
+      for(let i = 0; i < data.length; i++){
+         total += data[i].progress;
+      }
+      return [total, data.length];
+   } else{
+      let total = [0, 0];
+      for(let subData of Object.values(data)){
+         const subDataArr = getTotalByRecursion(subData);
+         total[0] += subDataArr[0];
+         total[1] += subDataArr[1];
+      }
+      return total;
+   }
+}
+let result = getTotalByRecursion(student);
+console.log(result[0]/result[1]);
+function factorial(n) {
+   if(typeof(n) !== "number" || !Number.isInteger(n)){
+      return "Error";
+   }
+   if(n >= 1){
+      return n * factorial(n - 1);
+   } else{
+      return 1;
+   }
+}
+console.log(factorial(5));*/
+const btns = document.querySelectorAll("button");
+btns[0].addEventListener("click", () =>{
+   if(!btns[0].classList.contains("blue")){
+      btns[0].classList.add("blue");
+   } else{
+      btns[0].classList.remove("blue");
+   }
+});
+btns[1].addEventListener("click", () =>{
+   if(!btns[1].classList.contains("yellow")){
+      btns[1].classList.add("yellow");
+   } else{
+      btns[1].classList.remove("yellow");
+   }
+});
+btns[2].addEventListener("click", () =>{
+   if(!btns[2].classList.contains("purple")){
+      btns[2].classList.add("purple");
+   } else{
+      btns[2].classList.remove("purple");
+   }
+});
+btns[3].addEventListener("click", () =>{
+   if(!btns[3].classList.contains("green")){
+      btns[3].classList.add("green");
+   } else{
+      btns[3].classList.remove("green");
+   }
+});
+btns[4].addEventListener("click", () =>{
+   if(!btns[4].classList.contains("red")){
+      btns[4].classList.add("red");
+   } else{
+      btns[4].classList.remove("red");
+   }
+});
+   const deadLine = "2022-06-11";
+   function getTimeRemaining(endtime){
+      const t = Date.parse(endtime) - Date.parse(new Date()),
+            days = Math.floor(t / (1000 * 60 * 60 * 24)),
+            hours = Math.floor((t / (1000 * 60 * 60) % 24)),
+            minutes = Math.floor((t / 1000 / 60) % 60),
+            seconds = Math.floor((t / 1000) % 60);
+      return {
+         "total": t,
+         "days": days,
+         "hours": hours,
+         "minutes": minutes,
+         "seconds": seconds,
+      };
+   }
+   function getZero(num){
+      if(num >= 0 && num < 10){
+         return `0${num}`;
+      } else{
+         return num;
+      }
+   }
+   function setClock(selector, endtime){
+      const timer = document.querySelector(selector),
+            days = document.querySelector("#days"),
+            hours = document.querySelector("#hours"),
+            minutes = document.querySelector("#minutes"),
+            seconds = document.querySelector("#seconds"),
+            timeInterval = setInterval(updateClock, 1000);
+      updateClock();
+      function updateClock(){
+         const t = getTimeRemaining(endtime);
+         days.innerHTML = getZero(t.days);
+         hours.innerHTML = getZero(t.hours);
+         minutes.innerHTML = getZero(t.minutes);
+         seconds.innerHTML = getZero(t.seconds);
+         
+         if(t.total <= 0){
+            clearInterval(timeInterval);
+         }
+      }
+   }
+   setClock("#timer", deadLine);
+   const inputUan = document.querySelector("#uan"),
+         inputUsd = document.querySelector("#usd");
+   inputUan.addEventListener("input", () => {
+      const request = new XMLHttpRequest();
+
+      request.open('GET', 'current.json');
+      request.setRequestHeader('Content-tupe', 'application/json; charset=utf-8');
+      request.send();
+
+      request.addEventListener("load", () => {
+         if(request.status === 200){
+            console.log(request.response);
+            const data = JSON.parse(request.response);
+            inputUsd.value = (+inputUan.value / data.current.usd).toFixed(2);
+         } else{
+            inputUsd.value = "Что-то пошло не так";
+         }
+      });
+   });
+

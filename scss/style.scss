@@ -1,19 +1,112 @@
 @import "nullstyle.scss";
-@import url(https://fonts.googleapis.com/css?family=Montserrat:,regular,500,,600,700,800&display=swap);
-.wrapper {
-	min-height: 100%;
-	overflow: hidden;
+body{
+	padding: 10px;
+}
+.btn-block{
+	margin: 0px 0px 30px 0px;
+	background-color: rgb(179, 179, 250);
+	padding: 10px;
+	button{
+		width: 100px;
+		height: 30px;
+	}
+	.blue{
+		background-color: blue;
+	}
+	.red{
+	background-color: red;
+   }
+	.yellow{
+		background-color: yellow;
+	}
+	.purple{
+		background-color: purple;
+	}
+	.green{
+		background-color: green;
+	}
+}
+.oclock {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+		&__title {
+			font-size: 30px;
+			margin: 0px 0px 20px 0px;
+		}
+		&__time {
+			display: flex;
+			
+		}
+		&__days {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 1px 1px 10px black;
+			width: 100px;
+			height: 100px;
+			margin: 0px 20px 0px 0px;
+		}
+		&__numder {
+			font-size: 45px;
+			font-weight: 900;
+			margin: 0px 0px 10px 0px;
+		}
+		&__string {
+			font-size: 20px;
+		}
+		&__hours {
+			box-shadow: 1px 1px 10px black;
+			display: flex;
+			flex-direction: column;
+			width: 100px;
+			height: 100px;
+			margin: 0px 20px 0px 0px;
+			align-items: center;
+			justify-content: center;
+		}
+		&__minutes {
+			box-shadow: 1px 1px 10px black;
+			display: flex;
+			flex-direction: column;
+			width: 100px;
+			height: 100px;
+			margin: 0px 20px 0px 0px;
+			align-items: center;
+			justify-content: center;
+		}
+		&__seconds {
+			box-shadow: 1px 1px 10px black;
+			display: flex;
+			flex-direction: column;
+			width: 100px;
+			height: 100px;
+			margin: 0px 0px 0px 0px;
+			align-items: center;
+			justify-content: center;
+		}
 }
-.content {
-	flex: 1 1 auto;
+.val {
+		&__uanname {
+			font-size: 35px;
+		}
+		&__uan {
+			font-size: 30px;
+			width: 250px;
+			height: 30px;
+			border: 1px solid black;
+		}
+		&__usdname {
+			font-size: 35px;
+		}
+		&__usd {
+			font-size: 30px;
+			width: 250px;
+			height: 30px;
+			border: 1px solid black;
+		}
 }
-.conteiner{
-	max-width: 1076px;
-	padding: 0px 15px;
-	margin: 0px auto;
-}
-
 
 
 
